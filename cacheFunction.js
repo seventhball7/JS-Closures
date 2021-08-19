@@ -1,16 +1,21 @@
 
 module.exports=cacheFunction=(cb)=>{
     let cacheobj={};
-    function invoke(n){
-       if(n in cacheobj){
-           return cacheobj[n];
-       }
-       else{
-           cacheobj[n]=cb(n);
-           return cb(n);
-       }
-         
+    function invoke(...passedval){
+   let arr=passedval.toString();
+    // console.log(arr);
+   
+    if(arr in cacheobj){
+        return cacheobj[arr];
     }
+    else{
+        cacheobj[arr]=cb(...passedval);
+       return cacheobj[arr];
+       
+    }
+
+    }
+    
    return invoke;
        
          

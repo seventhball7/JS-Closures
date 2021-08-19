@@ -3,20 +3,19 @@
 //     // `increment` should increment a counter variable in closure scope and return it.
 //     // `decrement` should decrement the counter variable and return it.
 // }
-module.exports=counterFactory=(currval)=>{
-   // let obj={};
-    var counter = currval;
+module.exports=counterFactory=()=>{
+    var counter = 0;
 
-    function increment(val){
-    counter+=val;  
-    return counter;
-  }
-   function decrement(val){
+     return{ increment(val){
+      counter+=val;  
+       return counter;
+     },
+     decrement(val){
       counter-=val;
-      return counter;
-  
+       return counter;
+    } 
 }
  
-  return {increment : increment, decrement : decrement};  
+  //return {increment : increment, decrement : decrement};  
 
 }

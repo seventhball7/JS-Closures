@@ -5,14 +5,14 @@
 // }
 module.exports=limitFunctionCallCount=(cb, n)=>{
      let noic=0;
-     if(noic>=n){
+     if(noic>n){
          return null;
      }
      function invoke(){
-         if(noic<n){
+         if(noic<=n){
              noic+=1;
-              cb();
-              console.log("count =" + noic);
+             cb();
+             console.log("count =" + noic);
          }
      }
      
